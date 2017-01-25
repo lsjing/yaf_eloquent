@@ -31,6 +31,10 @@ class Cache_Driver_Redis extends Cache_Cache
         $options['timeout'] === false ?
         $this->handler->$func($options['host'], $options['port']) :
         $this->handler->$func($options['host'], $options['port'], $options['timeout']);
+        if(isset($options['auth']) && !empty($options['auth']))
+            $this->handler->auth($options['auth']);
+        if(isset($options['db']) && !empty($options['db']))
+            $this->handler->select($options['db']);
     }
 
     /**

@@ -9,6 +9,13 @@ class IndexController extends AbstractController
     public function indexAction()
     {
 
+        $a = new UserEloquentModel();
+
+        dj($a);
+
+
+
+        exit;
         $user = DB::table('users')->where('username', 'molaifeng1')->first();
         var_dump($user);exit;
 

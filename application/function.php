@@ -37,7 +37,12 @@ function getLogPath()
  */
 function redisConnect()
 {
-    return Cache_Cache::getInstance('Redis', ['host' => getConfig('redis', 'host'), 'port' => getConfig('redis', 'port')]);
+    return Cache_Cache::getInstance('Redis', [
+        'host' => getConfig('redis', 'host'),
+        'port' => getConfig('redis', 'port'),
+        'auth' => getConfig('redis', 'auth'),
+        'db' => getConfig('redis', 'db')
+    ]);
 }
 
 /**
