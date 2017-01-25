@@ -1,7 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: danny
- * Date: 17/1/25
- * Time: 下午5:22
- */
+
+use Illuminate\Database\Capsule\Manager as DB;
+
+class AdminController extends AbstractController
+{
+    public function indexAction(){
+        echo time();
+    }
+}
