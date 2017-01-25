@@ -1,7 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: danny
- * Date: 17/1/25
- * Time: 下午4:52
- */
+
+use Illuminate\Database\Capsule\Manager as DB;
+
+class UserEloquentModel extends EloquentModel
+{
+    protected $table = 'users';
+}
