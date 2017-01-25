@@ -8,15 +8,6 @@ class IndexController extends AbstractController
     // 默认Action
     public function indexAction()
     {
-
-        $user = new UserEloquentModel();
-        $user->username = 'wangyang-js';
-        $user->email = 'wangy-js@gmail.com';
-        $a = $user->save();
-        echo '<pre>';
-        print_r($user);
-        dj($user);
-
         $user = DB::table('users')->where('username', 'xuef')->first();
         var_dump($user);exit;
 
