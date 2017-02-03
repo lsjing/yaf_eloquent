@@ -2,21 +2,42 @@
 
 use Illuminate\Database\Capsule\Manager as DB;
 
-class IndexController extends AbstractController
+class IndexController extends BaseController
 {
 
     // 默认Action
     public function indexAction()
     {
-        $user = DB::table('users')->where('username', 'xuef')->first();
-        var_dump($user);exit;
+        $this->xdisplay('index/index.phtml', ['content'=>'hello xuef']);
+//        $user = DB::table('staff_log')->where('sid', '37')->get();
+//        dj($user);
 
-//        DB::table('users')->chunk(100, function($users)
+//        $data = DB::table('resource')->where('parent', '910')->get();
+//        dj($data);
+
+        //$data = DB::table('role')->where('role_id', '40')->get();
+        //dj($data);
+
+//        $data = DB::table('staff')->where('username', 'admin')->get();
+//        dj($data);
+
+
+//        $data = DB::table('role_staff')->where('role_id', '40')->get();
+//        dj($data);
+
+//        $data = DB::table('role_resource')->where('role_id', '40')->get();
+//        dj($data);
+
+
+
+//        DB::table('staff_log')->chunk(3, function($logs)
 //        {
 //
-//            foreach ($users as $user)
+//            foreach ($logs as $log)
 //            {
-//                echo $user['username'];
+//                    $data = unserialize($log['request_data']);
+//                    print_r($data);
+////                echo $user['username'];
 //            }
 //            return false;
 //        });
@@ -58,7 +79,8 @@ class IndexController extends AbstractController
 //        print_r($data);
 //exit;
 //        $this->getView()->assign("content", "Hello World");
-        $this->getView()->display('layout/index.html');
+        //$this->getView()->display('layout/index.html');
+        return false;
     }
 
 }

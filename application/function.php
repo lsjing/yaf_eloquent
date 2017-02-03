@@ -20,7 +20,7 @@ function p($data)
 function getConfig($field, $key = null)
 {
     $data = Yaf_Registry::get('config')->toArray();
-    return $key ? $data[$field][$key] : $data[$field];
+    return $key ? (isset($data[$field][$key]) ? $data[$field][$key] : '') : $data[$field];
 }
 
 /**
