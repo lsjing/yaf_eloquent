@@ -1,0 +1,21 @@
+@charset "utf-8";
+html{text-align:center; background:url(../image/admin/loginbg.gif) left top repeat; text-align:left; }
+body{ text-align:center;}
+.login{ width:450px;text-align:left; margin:0px auto; margin-top:200px;}
+.balogo{ background:url(../image/admin/logo_04.png) center top no-repeat; height:30px;padding-top:36px;padding-bottom:30px;text-align:center;fong-weight:bold;font-family:"微软雅黑";font-size:24px;color:#fff;
+_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='logo_04.png'); /* IE6 */}
+.boginbox{ width:auto; height:auto;  margin-left:70px; text-align:left;}
+.boginbox dl{*z-index:1;height:40px; text-align:left;}
+.boginbox dl:after{clear:both;content:"\200B";display:block;height:0;}
+.boginbox dl dt{ float:left; font-family:"黑体"; color:#ffffff; font-size:14px; padding-top:4px; margin-right:10px; width:50px; text-align:justify;text-justify:inter-ideograph; }
+.boginbox dl dd{ float:left;}
+.boginbox input[type="text"]{border:1px solid #CCCCCC; background-color:#FFFFFF; padding:5px;}
+.boginbox input.inpw60[type="text"]{ width:60px; _width:60px;}
+.boginbox input.inpw130{ width:205px;}
+.boginbox input[type="password"]{border:1px solid #CCCCCC; background-color:#FFFFFF; padding:5px;}.boginbox dd span{ display:block; margin-left:5px; margin-top:3px;*margin-top:5px;_margin-top:2px; cursor:pointer;}
+.loginbnt{ width:200px; height:50px; margin-top:10px; text-align:left; }
+.loginbnt input[type="button"]{ text-align:left; }
+.loginbnt input[type="button"] {border: 0 none;}
+.button{ cursor:pointer;background:url(../image/admin/loginbnt.gif) left 1px no-repeat; font-family: Microsoft Yahei; text-align:left;font-size: 12px; *padding-left:8px; width:82px; height:28px; line-height:26px; color:#FFFFFF;}
+.loginbnt input{border:expression(type=="button"?"none":"style")}   
+.lbng{ text-align:left;margin-left:60px;}
