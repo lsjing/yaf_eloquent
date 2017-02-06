@@ -9,7 +9,7 @@ class Util_Session implements SessionHandlerInterface
 
     private $handle;
     private $lifetime;
-    private $prefix = 'YAF_ELOQUENT:';
+    private $prefix = 'YAF_:';
 
     /**
      * open session

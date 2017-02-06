@@ -8,7 +8,7 @@ class IndexController extends BaseController
     // 默认Action
     public function indexAction()
     {
-        $this->xdisplay('index/index.phtml', ['content'=>'hello xuef']);
+//        $this->xdisplay('index/index.phtml', ['content'=>'hello xuef']);
 //        $user = DB::table('staff_log')->where('sid', '37')->get();
 //        dj($user);
 

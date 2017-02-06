@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: danny
- * Date: 17/2/4
- * Time: 下午3:10
- */
+
+use Illuminate\Database\Capsule\Manager as DB;
+
+class PosEloquentModel extends EloquentModel
+{
+    protected $table = 'res_pos';
+    protected $primaryKey = 'pos_id';
+}

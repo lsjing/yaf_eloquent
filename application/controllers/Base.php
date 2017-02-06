@@ -13,18 +13,16 @@ class BaseController extends AbstractController
      *
      */
     public function success($msg, $url = '', $delay = 3){
-        //var_dump($url);
-        if($url == '') {
+        if($url == '')
             $url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
-        } else{
+        else
             $url = url::make($url);
-        }
-        //var_dump($url);exit;
+
         $params = array();
         $params['msg'] = $msg;
         $params['delay'] = $delay*1000;
         $params['url'] = $url;
-        return $this->display('layouts/mgr/success', $params);
+        return $this->display( '../common/success', $params);
     }
 
     /**
@@ -36,9 +34,9 @@ class BaseController extends AbstractController
      *
      */
     public function error($msg, $url = '', $delay = 3){
-        if($url != '') {
+        if($url != '')
             $url = '/';
-        }
+
         $params = array();
         $params['msg'] = $msg;
         $params['delay'] = $delay*1000;
@@ -48,16 +46,6 @@ class BaseController extends AbstractController
     }
 
     public function xdisplay($tpl, $params=[]){
-//        $ext = getConfig('application', 'view');
-//        if(empty($ext))
-//            $ext = 'phtml';
-//        else
-//            $ext = $ext['ext'];
-//
-//        if(strpos($tpl, $ext) == -1){
-//
-//        }
-
         if(!empty($params)){
             foreach ($params as $k=>$v)
                 $this->getView()->assign($k, $v);
@@ -65,6 +53,20 @@ class BaseController extends AbstractController
         }
 
         $this->getView()->display($tpl);
+        return true;
+    }
+
+    public function xredirect($url=null){
+        if($url)
+            $this->redirect($url);
+        else
+            $this->redirect('/');
         return;
+    }
+
+    public function xassign($params){
+        if(is_array($params) && !empty($params))
+            foreach ($params as $k=>$v)
+                $this->getView()->assign($k, $v);
     }
 }

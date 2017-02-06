@@ -18,6 +18,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract
 
         Yaf_Loader::import(APP_PATH . "/vendor/autoload.php");
         Yaf_Loader::import(APP_PATH . "/application/function.php");
+        Yaf_Loader::import(APP_PATH . "/application/global.inc.php");
 
         // 注册本地类名前缀, 这部分类名将会在本地类库查找
         Yaf_Loader::getInstance()->registerLocalNameSpace(array('Log', 'Cache', 'Upload', 'Http', 'Util'));
@@ -42,7 +43,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract
         $capsule->addConnection(Yaf_Application::app()->getConfig()->database->toArray());
 
         // biz业务链接
-        // $capsule->addConnection(Yaf_Application::app()->getConfig()->biz->toArray(), 'biz');
+         $capsule->addConnection(Yaf_Application::app()->getConfig()->wis->toArray(), 'wis');
 
         // 设置全局静态可访问
         $capsule->setAsGlobal();
@@ -50,8 +51,8 @@ class Bootstrap extends Yaf_Bootstrap_Abstract
         // 启动Eloquent
         $capsule->bootEloquent();
 
-        // define('DT', 'dt');
-        // $capsule::connection('dt')->enableQueryLog();
+//         define('DT', 'dt');
+         $capsule::connection('wis')->enableQueryLog();
 
     }
 

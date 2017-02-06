@@ -46,7 +46,7 @@ class Cache_Driver_Redis extends Cache_Cache
      */
     public function get($name,$flag=1) {
         $value = $this->handler->get($this->options['prefix'] . $name);
-        $jsonData  = ($flag==1)?json_decode( $value):$value;
+        $jsonData  = ($flag==1)?json_decode($value):json_decode($value, true);
         return ($jsonData === NULL) ? $value : $jsonData;	//检测是否为JSON数据 true 返回JSON解析数组, false返回源数据
     }
 
@@ -61,7 +61,8 @@ class Cache_Driver_Redis extends Cache_Cache
     public function set($name, $value, $expire = null) {
         $name   =   $this->options['prefix'].$name;
         //对数组/对象数据进行缓存处理，保证数据完整性
-        $value  =  (is_object($value) || is_array($value)) ? json_encode($value, JSON_UNESCAPED_UNICODE) : $value;
+//        $value  =  (is_object($value) || is_array($value)) ? json_encode($value, JSON_UNESCAPED_UNICODE) : $value;
+        $value  =  (is_object($value) || is_array($value)) ? json_encode($value) : $value;
         $result = $this->handler->set($name, $value);
         if ($expire) {
             $this->expire($name, $expire);

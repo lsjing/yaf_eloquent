@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>资源(POS机)系统-百动网</title>
+    <link href="/css/admin/wrap.css" type="text/css" rel="stylesheet" />
+
+    <script src="/js/jquery.js"></script>
+
+    <style type="text/css">
+        .snavcom_div{ display:none}
+        *{margin:0; padding:0}
+        body, html{ height:100%; width:100%; overflow:hidden;} /*这个高度很重要*/
+        #mainTable{padding:0px;margin:0px;}
+        #mainTable td,#mainTable th{padding:0px;margin:0px;}
+    </style>
+</head>
+<body style="padding:0px;margin:0px;">
+
+<table class="mains" id="mainTable" width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" style="overflow:hidden;margin:0px; ">
+    <tr>
+        <td  height="108"  colspan="2" style="  padding:0px;">
+            <div class="top">
+                <div class="header">
+                    <div class="logo" style="left:20px;top:26px;"><img src="/image/admin/logo_04.png" style="cursor:pointer;float:left;" onclick="window.location.href='/admin/index'"  /><div style="float:left;margin-left:10px;padding-left:10px;border-left:2px solid #fff;font-size:22px;font-weight:bold;color:#fff;">场馆资源系统</div></div>
+
+                    <div class="user">
+                        <p>当前登录：<span>admin</span> <!--|<span>账户管理</span> --> | <span onclick="if(confirm('确实要退出系统?'))window.location.href='/admin/logout'">退出</span></p>
+                        <p>2017年02月03日 16:11 星期五</p>
+                    </div>
+                    <!-----------------------主导航 开始----------------------->
+
+                    <div class="nav">
+                        <ul id="topMenu">
+                            <li menu="output"><a href="javascript:void(0)"  target="main" title="POS机出库/回收" >出库/回收</a></li>
+                            <li menu="indexer"><a href="javascript:void(0)"  target="main" title="更新索引" >索引</a></li>
+                        </ul>
+                    </div>
+                    <!-----------------------主导航 开始----------------------->
+                </div>
+                <div class="clear"></div>
+            </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td width="182"  height="100%" valign="top" style="padding:0px;width:182px;_width:185px; background-color:#f2f2f2;border-right:3px solid #003a73;">
+            <!-----------------------侧导航 开始----------------------->
+
+
+            <div class="snavcom" id="_left" style="overflow-y:auto;">
+
+                <div class="sub_index snavcom_div" style="display:block">
+
+                    <div class="snavbox">
+                        <div class="snavt">
+
+                            <div class="snavtminus">&nbsp;</div>常用操作</div>
+                        <div class="snavn">
+                            <ul>
+<!--                                <li class="current"><a href="/user/modifyPassword" target="main">修改密码</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sub_output snavcom_div"  >
+
+                    <div class="snavbox">
+                        <div class="snavt"><div class="snavtminus">&nbsp;</div>
+                            <a target="main" class="have" href="javascript:void(0)">出库</a>
+                        </div>
+                        <div class="snavn">
+                            <ul>
+                                <li><a target="main" href="/pos/export" >新增出库</a></li>
+                                <li><a target="main" href="/pos/list" >出库历史</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="snavbox">
+                        <div class="snavt"><div class="snavtminus">&nbsp;</div>
+                            <a target="main" class="have" href="javascript:void(0)">回收</a>
+                        </div>
+                        <div class="snavn">
+                            <ul>
+                                <li><a target="main" href="" >回收历史</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sub_indexer snavcom_div"  >
+
+                    <div class="snavbox">
+                        <div class="snavt">
+                            <div class="snavtminus">&nbsp;</div>
+                            <a target="main" class="have" href="javascript:void(0)">索引</a>
+                        </div>
+                        <div class="snavn">
+                            <ul>
+                                <li><a target="main" href="">索引历史</a></li>
+                                <li><a target="main" href="">重新索引</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="clear"></div>
+            </div>
+
+            <!-----------------------侧导航 结束----------------------->
+        </td>
+        <td  style="padding:0px" height="100%"><!-----------------------内容 开始----------------------->
+            <iframe src="/admin/common" id="main" name="main" width="100%" height="100%"  frameborder="0"   scrolling="auto"></iframe>
+
+        </td>
+    </tr>
+
+
+</table>
+
+<script type="text/javascript">
+</script>
+<script  language="javascript">
+    $(document).ready(function(){
+
+        $("#topMenu li a").each(function(){
+            $(this).click(function(){
+                $('#topMenu li').removeClass('current');
+                $(this).parent().addClass('current');
+                $('.snavcom_div').hide();
+                var menu=$(this).parent().attr('menu');
+                menu = "sub_"+menu;
+                $('.'+menu).show();
+
+            });
+        });
+
+        $('.snavt').click(function(){
+            var dom=$(this).find('div');
+            var c=dom.attr('class');
+            if(c=="snavtadd") {
+                /* $('.snavcom').find('.snavn').each(function(){
+                 $(this).hide();
+                 var d = $(this).prev('.snavt').find('div');
+                 d.removeClass('snavtminus');
+                 d.addClass('snavtadd');
+                 });*/
+                $(this).next('.snavn').slideDown(100);
+                $(dom).removeClass('snavtadd');
+                $(dom).addClass('snavtminus');
+
+            } else {
+                $(this).next('.snavn').slideUp(100);
+                $(dom).removeClass('snavtminus');
+                $(dom).addClass('snavtadd');
+            }
+            return false;
+
+        });
+
+        $('.snavn').find('a').each(function(){
+            $(this).click(function(){
+                $('.snavn a').removeClass('current');
+                $(this).addClass('current');
+
+            });
+
+        });
+
+
+
+    });
+    $("#main").load(function(){   //一定要有.load等载入完成
+        h=$(window).height();
+        h=h-109;
+        $(this).css('height', h);
+
+        iframe=$(this).contents().find('html');
+        w=iframe.width();
+        if(w<1100) {
+            w=1100;
+            iframe.css('width', w);
+        }
+
+    });
+</script>
+
+</body>
+</html>

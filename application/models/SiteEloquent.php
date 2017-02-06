@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: danny
- * Date: 17/2/3
- * Time: 下午5:56
- */
+
+use Illuminate\Database\Capsule\Manager as DB;
+
+class SiteEloquentModel extends EloquentModel
+{
+    protected $connection = 'dt';
+    protected $table = 'site';
+}

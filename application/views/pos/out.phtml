@@ -1,0 +1,91 @@
+<?php
+require_once VIEW_PATH .'common/header.phtml';
+?>
+
+
+    <form action="" method="post" id="badminton-album-form">
+        <table  >
+            <tr class="thead">
+                <th colspan="4">pos机出库</th>
+            </tr>
+
+            <tr>
+                <td class="w100" align="right">场馆</td>
+                <td>
+                    <select name="site_id" class="w180">
+                        <option>选择场馆</option>
+                        <?php
+                        foreach($sites as $id=>$site){
+                            echo '<option value="', $site['ID'],'">', $site['SITE_NAME'], '</option>';
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="w100" align="right">验码设备编号</td>
+                <td>
+                    <input id="code_device_info" style="IME-MODE: disabled; "type="text" maxlength="20" name="code_device_info" class="w180" >
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="w100" align="right">版本</td>
+                <td>
+                    <input id="version" style="IME-MODE: disabled; "type="text" maxlength="20" name="version" class="w180" >
+                </td>
+            </tr>
+
+            <tr>
+                <td class="w100" align="right">功能</td>
+                <td>
+                    <input id="function" style="IME-MODE: disabled; "type="text" maxlength="20" name="function" class="w180" >
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="w100" align="right">4G卡号</td>
+                <td>
+                    <input id="4g_card_no" style="IME-MODE: disabled; "type="text" maxlength="20" name="4g_card_no" class="w180" >
+
+                </td>
+            </tr>
+            <tr>
+                <td class="w100" align="right">开通日期</td>
+                <td>
+                    <input id="open_date" style="IME-MODE: disabled; "type="text" maxlength="20" name="open_date" class="w180" >
+
+                </td>
+            </tr>
+            <tr>
+                <td class="w100" align="right">交付日期</td>
+                <td>
+                    <input id="delivery_date" style="IME-MODE: disabled; "type="text" maxlength="20" name="delivery_date" class="w180" >
+
+                </td>
+            </tr>
+
+            <tr>
+                <td class="w100" align="right">使用日期</td>
+                <td>
+                    <input id="online_date" style="IME-MODE: disabled; "type="text" maxlength="20" name="online_date" class="w180" >
+
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input id="subBtn" type="submit" value="保存信息" class="button" >
+                </td>
+            </tr>
+        </table>
+    </form>
+
+
+<?php
+require_once VIEW_PATH . 'common/footer.phtml';
+?>

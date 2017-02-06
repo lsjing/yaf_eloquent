@@ -12,6 +12,6 @@ class StaffEloquentModel extends EloquentModel
         if($user['password'] !== md5($this->password))
             return false;
 
-        return true;
+        return $user;
     }
 }
