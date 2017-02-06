@@ -1,0 +1,68 @@
+@charset "utf-8";
+.bestdo{ width:100%;  }
+/********头部**********************************************************************************************/
+.top{background:url(../../image/admin/topbg.gif) left top repeat-x; height:108px; overflow:hidden;}
+li {
+	list-style-type:none;
+}
+.header {
+	width:auto;
+	height:108px;
+	overflow:hidden;
+	background:url(../../image/admin/toprightbg.gif) right top no-repeat;
+	position:relative;
+}
+.logo { 
+    overflow: hidden;
+    width: 544px;
+	position:absolute; left:0px; top:0px;
+}
+
+.user{ width:100%; padding-top:20px;height:80px; font-size:12px; font-family:SimSun; color:#FFFFFF; }
+.user p{ height:26px;margin-right:10px; font-weight:normal;text-align:right;  font-weight:normal;}
+.user p span{ margin-left:3px; margin-right:3px; cursor:pointer;}
+.user .data{ width:180px; text-align:right; margin-right:50px; font-family:Microsoft Yahei;}
+
+/********主导航************************************/
+/*.nav{ position:absolute; left:185px; bottom:0px;  height:28px;width:970px; overflow:hidden}*/
+.nav{ position:absolute; left:185px; bottom:0px;  min-height:28px;}
+.nav ul{ clear:both; width:100%; }
+.nav ul li{ font-size:14px; font-family:Microsoft Yahei; text-align:center; line-height:26px;color:#ffffff;float:left; height:30px; width:96px; background:url(../../image/admin/navbg.gif) left -34px no-repeat;z-index:9;}
+.nav ul li.current{background:url(../../image/admin/navbg.gif) left top no-repeat; color:#ffffff;}
+/*.nav ul li:hover{ cursor:pointer; background:url(../../image/admin/navbg.gif) left top no-repeat; color:#ffffff;}
+*/
+.nav ul li a{color:#ffffff; text-decoration:none; display:block;height:30px;letter-spacing:3px}
+.nav ul li a:hover{color:#ffffff; background:url(../../image/admin/navbg.gif) left top no-repeat; text-decoration:none;}
+
+.main{ width:100%; height:100%;*zoom:1; background-color:#CC3}
+.main:after{clear:both;content:"\200B";display:block;height:0;}  
+
+
+
+/********侧导航************************************/
+.sidenav{width:185px;_width:188px;float:left;  height:auto !important;
+ 
+}
+.snavcom{width:182px;_width:185px; height:500PX;   padding-top:10px; overflow:hidden ;}
+.snavbox{ width:100%; margin-bottom:1px;}
+.snavt{ width:100%; height:28px; line-height:27px;*line-height:26px; background:url(../../image/admin/snavtbg.gif) left top repeat-x; color:#f1f1f1;font-family:Microsoft Yahei;font-size:14px; text-indent:35px;position:relative;}
+.snavt a{color:#FFF;text-decoration:none;}
+
+.snavtadd{ z-index:2;background:url(../../image/admin/snavicon.gif) left -27px no-repeat; width:10px; overflow:hidden; position:absolute; top:0px; right:5px; cursor:pointer;}
+.snavtminus{z-index:2;background:url(../../image/admin/snavicon.gif) left top no-repeat; width:10px; overflow:hidden; position:absolute; top:0px; right:5px; cursor:pointer;}
+
+.snavn{ width:160px; font-family:Microsoft Yahei;font-size:14px; margin-left:25px;}
+.snavn ul{ padding-bottom:5px; padding-top:5px;}
+.snavn ul li{ height:24px; line-height:24px;color:#002246; font-family:Microsoft Yahei; text-indent:20px; }
+#_left .current{ color:#ff7e00;} 
+.snavn ul li:hover{ color:#ff7e00; cursor:pointer;}
+.snavn ul li a{ text-decoration:none; color:#002246;}
+.snavn ul li a:hover{ text-decoration:none;color:#ff7e00; }
+
+
+ 
+.box{float:left; width:99%;}
+.boxn{ padding-top:10px; padding-left:10px;}
+table.mains{ border:0px; width:100%;  height:100%; margin-bottom:0px;}
+table.mains td{ border:none; vertical-align:top; }
+.clear{ clear:both}
