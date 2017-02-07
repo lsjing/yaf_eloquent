@@ -1,27 +1,42 @@
 <?php
 require_once VIEW_PATH .'common/header.phtml';
 ?>
+
+
 <table>
     <tr class="thead">
-        <th colspan="4">pos机出库记录</th>
+        <th colspan="4">pos机列表</th>
     </tr>
     <tr>
-        <th class="center">序号</th>
-        <th class="center">场馆</th>
-        <th class="center">POS机编码</th>
-        <th class="center">出库时间</th>
+        <form action="" method="get">
+            <th colspan="4">
+                筛选条件:
+                <select name="k">
+                    <option value="code_device_info" <?=($k=='code_device_info'?'selected':'')?>>验码设备编号</option>
+                    <option value="fg_card_no" <?=($k=='fg_card_no'?'selected':'')?>>4G卡号</option>
+                </select>
+                <input type="text" name="v" <?=(($v!='')?'value="'.$v.'"':'')?> maxlength="30"/>
+                <input type="submit" class="button" value="搜 索">
+            </th>
+        </form>
+    </tr>
+    <tr>
+        <th class="center w30">序号</th>
+        <th class="center w140">4G卡号</th>
+        <th class="center w140">验码设备编号</th>
+        <th class="">登记时间</th>
     </tr>
 
     <?php
     foreach ($poses as $pos){
-    ?>
+        ?>
         <tr>
-            <td><?=($pos['pos_id'])?></td>
-            <td><?=($pos['site_name'])?></td>
-            <td><?=($pos['code_device_info'])?></td>
+            <td class="center"><?=($pos['id'])?></td>
+            <td class="center"><?=($pos['fg_card_no'])?></td>
+            <td class="center"><?=($pos['code_device_info'])?></td>
             <td><?=($pos['create_time'])?></td>
         </tr>
-    <?php
+        <?php
     }
     ?>
 
@@ -29,33 +44,35 @@ require_once VIEW_PATH .'common/header.phtml';
 
 </table>
 
-<div class="pager">
+<div class="pager" style="margin-right:30px;">
 
     <?php
-        if($page != 1)
-            echo '<a href="?page=1" title="首页">首页</a>';
-        else
-            echo '<span>首页</span>&nbsp;';
+    if($page != 1)
+        echo '<a href="?page=1" title="首页">首页</a>';
+    else
+        echo '<span>首页</span>&nbsp;';
 
-        if($page > 1)
-            echo '<a href="?page='.($page-1).'" title="上一页">上一页</a>';
-        else
-            echo '<span>上一页</span>';
+    if($page > 1)
+        echo '<a href="?page='.($page-1).'" title="上一页">上一页</a>';
+    else
+        echo '<span>上一页</span>';
     ?>
 
     <span class="span">&nbsp;&nbsp;<?=$page?>&nbsp;&nbsp;</span>
 
     <?php
-        if($page < ceil($total/$pagesize)){
-            echo '<a href="?page=' . ($page+1) . '" title="下一页">下一页</a>';
-            echo '<a href="?page=' . ceil($total/$pagesize) . '" title="尾页">尾页</a>';
-        }
-        else{
-            echo '<span>下一页</span>&nbsp;';
-            echo '<span>尾页</span>';
-        }
+    if($page < ceil($total/$pagesize)){
+        echo '<a href="?page=' . ($page+1) . '" title="下一页">下一页</a>';
+        echo '<a href="?page=' . ceil($total/$pagesize) . '" title="尾页">尾页</a>';
+    }
+    else{
+        echo '<span>下一页</span>&nbsp;';
+        echo '<span>尾页</span>';
+    }
+
+    echo '&nbsp;<span>共', $total, '条/', ceil($total/$pagesize), '页</span>';
 
     ?>
-    
-    
+
+
 </div>

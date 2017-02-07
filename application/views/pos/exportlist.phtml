@@ -1,0 +1,61 @@
+<?php
+require_once VIEW_PATH .'common/header.phtml';
+?>
+<table>
+    <tr class="thead">
+        <th colspan="4">pos机出库记录</th>
+    </tr>
+    <tr>
+        <th class="center">序号</th>
+        <th class="center">场馆</th>
+        <th class="center">POS机编码</th>
+        <th class="center">出库时间</th>
+    </tr>
+
+    <?php
+    foreach ($poses as $pos){
+    ?>
+        <tr>
+            <td><?=($pos['pos_id'])?></td>
+            <td><?=($pos['site_name'])?></td>
+            <td><?=($pos['code_device_info'])?></td>
+            <td><?=($pos['create_time'])?></td>
+        </tr>
+    <?php
+    }
+    ?>
+
+
+
+</table>
+
+<div class="pager">
+
+    <?php
+        if($page != 1)
+            echo '<a href="?page=1" title="首页">首页</a>';
+        else
+            echo '<span>首页</span>&nbsp;';
+
+        if($page > 1)
+            echo '<a href="?page='.($page-1).'" title="上一页">上一页</a>';
+        else
+            echo '<span>上一页</span>';
+    ?>
+
+    <span class="span">&nbsp;&nbsp;<?=$page?>&nbsp;&nbsp;</span>
+
+    <?php
+        if($page < ceil($total/$pagesize)){
+            echo '<a href="?page=' . ($page+1) . '" title="下一页">下一页</a>';
+            echo '<a href="?page=' . ceil($total/$pagesize) . '" title="尾页">尾页</a>';
+        }
+        else{
+            echo '<span>下一页</span>&nbsp;';
+            echo '<span>尾页</span>';
+        }
+
+    ?>
+    
+    
+</div>
