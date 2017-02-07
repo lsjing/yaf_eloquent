@@ -61,5 +61,10 @@ class AdminController extends BaseController
 
     public function commonAction(){
 
+//        echo VIEW_PATH . 'common/success.phtml';
+//
+//        return false;
+        $this->error('hello-world', '/pos/list', 5);
+        return false;
     }
 }

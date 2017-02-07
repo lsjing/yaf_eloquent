@@ -12,16 +12,17 @@ class BaseController extends AbstractController
      * @param integer $delay 跳转URL延时
      *
      */
-    public function success($msg, $url = '', $delay = 3){
+    public function success($msg, $url = '', $delay = 1){
         if($url == '')
             $url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
-        else
-            $url = url::make($url);
+//        else
+//            $url = 'admin/index';
 
         $params = array();
         $params['msg'] = $msg;
         $params['delay'] = $delay*1000;
         $params['url'] = $url;
+
         return $this->display( '../common/success', $params);
     }
 
@@ -33,16 +34,16 @@ class BaseController extends AbstractController
      * @param integer $delay 跳转URL延时
      *
      */
-    public function error($msg, $url = '', $delay = 3){
-        if($url != '')
-            $url = '/';
+    public function error($msg, $url = '', $delay = 1){
+        if($url == '')
+            $url = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
 
         $params = array();
         $params['msg'] = $msg;
         $params['delay'] = $delay*1000;
         $params['url'] = $url;
 
-        return $this->display('layouts/mgr/error', $params);
+        return $this->display('../common/error', $params);
     }
 
     public function xdisplay($tpl, $params=[]){

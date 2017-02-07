@@ -1,7 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: danny
- * Date: 17/2/6
- * Time: 下午3:38
- */
+
+use Illuminate\Database\Capsule\Manager as DB;
+
+class CycleEloquentModel extends EloquentModel
+{
+    protected $table = 'res_cycle';
+    protected $primaryKey = 'id';
+}
