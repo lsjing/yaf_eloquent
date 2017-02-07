@@ -43,7 +43,9 @@ ol, ul {
 .w110{width:110px;}
 .w120{width:120px;}
 .w130{width:130px;}
+.w140{width:140px;}
 .w150{width:150px;}
+.w160{width:160px;}
 .w170{width:170px;}
 .w180{width:180px;}
 .w200{width:200px;}
@@ -171,7 +173,7 @@ select{ padding:3px 0px; margin:0px; border:1px solid #CCC}
 
 /****按钮两种样式*****/
 body .btn {
-    background: url("../../images/admin/bntbg.gif") no-repeat scroll left top transparent;
+    background: url("../../image/admin/bntbg.gif") no-repeat scroll left top transparent;
     color: #FFFFFF;
     font-size: 12px;
     font-weight: bold;
@@ -182,10 +184,10 @@ body .btn {
 	border:none;
 }
 .btn:hover{
-	background: url("../../images/admin/bntbg.gif") no-repeat scroll left -28px transparent;  color: #FFFFFF;
+	background: url("../../image/admin/bntbg.gif") no-repeat scroll left -28px transparent;  color: #FFFFFF;
  }
 
-.btn-big{ background: url("../../images/admin/bntbg.gif") no-repeat scroll -78px top transparent;  color: #FFFFFF;
+.btn-big{ background: url("../../image/admin/bntbg.gif") no-repeat scroll -78px top transparent;  color: #FFFFFF;
     font-size: 12px;
     height: 25px;
     line-height: 25px;
@@ -196,7 +198,7 @@ body .btn {
 	}
 
 .btn-big:hover{
-	background: url("../../images/admin/bntbg.gif") no-repeat scroll -78px -28px transparent;  color: #FFFFFF;
+	background: url("../../image/admin/bntbg.gif") no-repeat scroll -78px -28px transparent;  color: #FFFFFF;
 }
 
 
@@ -243,15 +245,15 @@ td em{ font-style:normal; color:#f00}
 .pages a:hover{ text-decoration:none;}
 .pages a.initial:hover{ text-decoration:underline;}
 
-.pages a.G{color:#9b9797;font-family:"Microsoft Yahei"; background:url(../../images/admin/pagesbg.gif) -396px 0 no-repeat; _background:url(../../images/admin/pagesbg.gif) -397px 0px no-repeat; width:58px; _width:58px;height:24px; _height:26px; line-height:24px; text-indent:6px; text-align:left; _margin-bottom:-7px; padding:0px;}
-.pages a.G:hover{background:url(../../images/admin/pagesbg.gif) -524px 0px no-repeat;}
+.pages a.G{color:#9b9797;font-family:"Microsoft Yahei"; background:url(../../image/admin/pagesbg.gif) -396px 0 no-repeat; _background:url(../../image/admin/pagesbg.gif) -397px 0px no-repeat; width:58px; _width:58px;height:24px; _height:26px; line-height:24px; text-indent:6px; text-align:left; _margin-bottom:-7px; padding:0px;}
+.pages a.G:hover{background:url(../../image/admin/pagesbg.gif) -524px 0px no-repeat;}
 
 
-.pages a.L{ color:#9b9797;font-family:Microsoft Yahei;height:24px; _height:26px; line-height:24px; background:url(../../images/admin/pagesbg.gif) -332px 0px no-repeat; width:57px;_width:58px;  text-indent:10px; text-align:left; _margin-bottom:-7px; padding:0px;}
-.pages a.L:hover{ background:url(../../images/admin/pagesbg.gif) -461px 0px no-repeat;}
+.pages a.L{ color:#9b9797;font-family:Microsoft Yahei;height:24px; _height:26px; line-height:24px; background:url(../../image/admin/pagesbg.gif) -332px 0px no-repeat; width:57px;_width:58px;  text-indent:10px; text-align:left; _margin-bottom:-7px; padding:0px;}
+.pages a.L:hover{ background:url(../../image/admin/pagesbg.gif) -461px 0px no-repeat;}
 
-.pages a.G_pass{color:#9b9797; font-family:Microsoft Yahei;background:url(../../images/admin/pagesbg.gif) -524px 0px no-repeat;width:57px;_width:60px; height:24px; _height:26px; line-height:24px;  text-indent:10px; text-align:left;  _margin-bottom:-7px;cursor:default; padding:0px;}
-.pages a.L_pass{ color:#9b9797;font-family:Microsoft Yahei;height:24px; _height:26px; line-height:24px;  background:url(../../images/admin/pagesbg.gif) -461px 0px no-repeat;  width:56px; _width:60px; text-indent:10px; text-align:left; _margin-bottom:-7px; cursor:default; padding:0px;}
+.pages a.G_pass{color:#9b9797; font-family:Microsoft Yahei;background:url(../../image/admin/pagesbg.gif) -524px 0px no-repeat;width:57px;_width:60px; height:24px; _height:26px; line-height:24px;  text-indent:10px; text-align:left;  _margin-bottom:-7px;cursor:default; padding:0px;}
+.pages a.L_pass{ color:#9b9797;font-family:Microsoft Yahei;height:24px; _height:26px; line-height:24px;  background:url(../../image/admin/pagesbg.gif) -461px 0px no-repeat;  width:56px; _width:60px; text-indent:10px; text-align:left; _margin-bottom:-7px; cursor:default; padding:0px;}
 
 .pages span{ margin:0px 2px; _margin-top:6PX;}
 
@@ -261,7 +263,7 @@ td em{ font-style:normal; color:#f00}
 
 /****错误 成功 警告窗口*************************************************************/
 .x {
-    background: url("../../images/admin/x_03.gif") no-repeat scroll left top transparent;
+    background: url("../../image/admin/x_03.gif") no-repeat scroll left top transparent;
     cursor: pointer;
     height: 20px;
     position: absolute;
@@ -276,9 +278,9 @@ td em{ font-style:normal; color:#f00}
 .msg_box{margin-top:30px; margin-left:140px;}
  .msg_title{ font-size:14px; font-weight:bold; margin-bottom:10px}
 
-.error{ width:448px; height:192px; overflow:hidden; position:relative; background:url(../../images/admin/erbg.gif) left top no-repeat;}
-.sucu{ width:448px; height:192px; overflow:hidden; position:relative; background:url(../../images/admin/sucbg.gif) left top no-repeat;}
-.warning{ width:448px; height:192px; overflow:hidden; position:relative; background:url(../../images/admin/warningbg.gif) left top no-repeat;}
+.error{ width:448px; height:192px; overflow:hidden; position:relative; background:url(../../image/admin/erbg.gif) left top no-repeat;}
+.sucu{ width:448px; height:192px; overflow:hidden; position:relative; background:url(../../image/admin/sucbg.gif) left top no-repeat;}
+.warning{ width:448px; height:192px; overflow:hidden; position:relative; background:url(../../image/admin/warningbg.gif) left top no-repeat;}
 
 .w100{width:100px}
 
