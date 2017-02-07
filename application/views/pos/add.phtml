@@ -12,35 +12,35 @@ require_once VIEW_PATH .'common/header.phtml';
             <tr>
                 <td class="w100" align="right">验码设备编号</td>
                 <td>
-                    <input id="code_device_info" style="IME-MODE: disabled; "type="text" maxlength="20" name="code_device_info" class="w180" >
-                </td>
+                    <input required minlength="14" id="code_device_info" style="IME-MODE: disabled; "type="text" maxlength="20" name="code_device_info" class="w180" >
+                </td><!--YP620000029514-->
             </tr>
 
             <tr>
                 <td class="w100" align="right">收银设备编号</td>
                 <td>
-                    <input id="cashier_device_info" style="IME-MODE: disabled; "type="text" maxlength="20" name="cashier_device_info" class="w180" >
+                    <input id="cashier_device_info" style="IME-MODE: disabled; "type="text" maxlength="20" name="cashier_device_info" class="w180" placeholder="可不填">
                 </td>
             </tr>
 
             <tr>
                 <td class="w100" align="right">程序版本</td>
                 <td>
-                    <input id="version" style="IME-MODE: disabled; "type="text" maxlength="20" name="version" class="w180" >
+                    <input required id="version" style="IME-MODE: disabled; "type="text" maxlength="20" name="version" class="w180" >
                 </td>
             </tr>
 
             <tr>
                 <td class="w100" align="right">4G卡号</td>
                 <td>
-                    <input id="fg_card_no" style="IME-MODE: disabled; "type="text" maxlength="20" name="fg_card_no" class="w180" >
+                    <input required id="fg_card_no" style="IME-MODE: disabled; "type="text" maxlength="20" name="fg_card_no" class="w180" >
                 </td>
             </tr>
 
             <tr>
                 <td class="w100" align="right">功能</td>
                 <td>
-                    <input id="function" style="IME-MODE: disabled; "type="text" maxlength="20" name="function" class="w180" >
+                    <input value="验码" id="function" style="IME-MODE: disabled; "type="text" maxlength="20" name="function" class="w180" >
 
                 </td>
             </tr>

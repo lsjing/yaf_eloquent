@@ -18,11 +18,21 @@ class PosController extends BaseController
                 ->table('site')
                 ->select('ID','SITE_NAME','CREATE_DATE')
                 ->orderBy('CREATE_DATE', 'desc')
-                ->limit(15)
+//                ->limit(15)
                 ->get();
 
             $redis->set($key, json_encode($sites), 6);
         }
+
+        $req = $this->getRequest()->getPost();
+        if(!empty($req)){
+            //
+
+
+        }
+
+
+
 
         $this->getView()->assign('sites', $sites);
     }
@@ -65,7 +75,7 @@ class PosController extends BaseController
         $poses = DB::table('res_pos');
 
         if($v != '')
-            $poses = $poses->where($k, 'like', '%'.$v.'%');
+            $poses = $poses->where($k, 'like', '%'.strtoupper($v).'%');
 
         $poses = $poses
             ->where('archived', 1)
@@ -96,7 +106,7 @@ class PosController extends BaseController
         $req = $this->getRequest()->getPost();
         if(!empty($req)){
             $pos = new PosEloquentModel();
-            $pos->code_device_info = $req['code_device_info'];
+            $pos->code_device_info = strtoupper($req['code_device_info']);
             $pos->cashier_device_info = $req['cashier_device_info'];
             $pos->fg_card_no = $req['fg_card_no'];
             $pos->function = $req['function'];
@@ -113,6 +123,36 @@ class PosController extends BaseController
                 return false;
             }
 
+
+        }
+    }
+
+    public function AjaxGetPosSiteAction(){
+        $req = $this->getRequest()->getPost();
+        $xhr = $this->getRequest()->isXmlHttpRequest();
+
+        $sites = [];
+
+        if(!empty($req) && $xhr){
+            $sites = DB::connection('wis')
+                ->table('site')
+                ->select('ID','SITE_NAME','CREATE_DATE')
+                ->where('SITE_NAME', 'like', '%'.$req['q'].'%')
+                ->orderBy('CREATE_DATE', 'desc')
+                ->limit(10)
+                ->get();
+        }
+
+        echo json_encode($sites);
+
+//        echo json_encode(array_merge([
+//            'name'=>'xuef',
+//            'age'=>28
+//        ],$req));
+
+        return false;
+
+        if(!empty($req)){
 
         }
     }

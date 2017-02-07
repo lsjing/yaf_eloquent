@@ -1,3 +1,3 @@
 <?php
 
-    define('PAGESIZE', 5);
+    define('PAGESIZE', 10);

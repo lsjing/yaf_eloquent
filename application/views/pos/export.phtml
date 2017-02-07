@@ -1,10 +1,10 @@
 <?php
 require_once VIEW_PATH .'common/header.phtml';
 ?>
+    <link href="/css/jquery.suggest.css" type="text/css" rel="stylesheet">
 
-
-    <form action="" method="post" id="badminton-album-form">
-        <table  >
+    <form action="" method="post">
+        <table>
             <tr class="thead">
                 <th colspan="4">pos机出库</th>
             </tr>
@@ -12,15 +12,9 @@ require_once VIEW_PATH .'common/header.phtml';
             <tr>
                 <td class="w100" align="right">场馆</td>
                 <td>
-                    <select id="site_id" name="site_id" class="w180">
-                        <option>选择场馆</option>
-                        <?php
-                        foreach($sites as $id=>$site){
-                            echo '<option value="', $site['ID'],'">', $site['SITE_NAME'], '</option>';
-                        }
-                        ?>
-                    </select>
-                    <input id="site_name" type="hidden" name="site_name" />
+                    <input type="text" id="q" class="w180" />
+                    <input id="site_id" type="hidden" name="site_name" />
+                    <a onclick="ajaxGetSites()">搜索场馆</a>
                 </td>
             </tr>
 
@@ -58,14 +52,12 @@ require_once VIEW_PATH .'common/header.phtml';
                 <td class="w100" align="right">开通日期</td>
                 <td>
                     <input id="open_date" style="IME-MODE: disabled; "type="text" maxlength="20" name="open_date" class="w180" >
-
                 </td>
             </tr>
             <tr>
                 <td class="w100" align="right">交付日期</td>
                 <td>
                     <input id="delivery_date" style="IME-MODE: disabled; "type="text" maxlength="20" name="delivery_date" class="w180" >
-
                 </td>
             </tr>
 
@@ -73,7 +65,6 @@ require_once VIEW_PATH .'common/header.phtml';
                 <td class="w100" align="right">使用日期</td>
                 <td>
                     <input id="online_date" style="IME-MODE: disabled; "type="text" maxlength="20" name="online_date" class="w180" >
-
                 </td>
             </tr>
 
@@ -87,10 +78,70 @@ require_once VIEW_PATH .'common/header.phtml';
     </form>
     <script>
         $(function(){
-            $('#site_id').change(function () {
-                $('#site_name').val( $("#site_id").find("option:selected").text() );
-            })
-        })
+            $('ul.ac_results li').click(function () {
+                $('#q').val( $(this).html() );
+                $('#site_id').val( $(this).attr('data-tag') );
+
+                console.info( $(this).attr('data-tag') )
+                console.info( $(this).html() )
+            });
+        });
+
+        function ajaxGetSites() {
+            var name = $.trim($('#q').val());
+            $.ajax({
+                type: 'POST',
+                url: '/pos/ajaxGetPosSite',
+                data: {'q':name},
+                async : false,
+                success: function(d){
+                    genHtml(eval('(' + d + ')' ));
+                }
+            });
+        }
+
+        function genHtml(items){
+
+            $('ul.ac_results').remove();
+
+            var $results = $(document.createElement("ul"));
+            $results.addClass('ac_results').appendTo('body');
+
+
+            var html = '';
+            for (var i = 0; i < items.length; i++)
+                html += '<li data-tag="' + items[i].ID + '">' + items[i].SITE_NAME + '</li>';
+
+            $results.html(html).show();
+            var width = $('#q').width()+2;
+            var offset = $('#q').offset();
+
+            $results.css('width', width);
+            $results.css({
+                top: (offset.top) + 'px',
+                left: (offset.left + width + 60) + 'px'
+            });
+
+            $results
+                .children('li')
+                .mouseover(function() {
+                    $results.children('li').removeClass('ac_over');
+                    $(this).addClass('ac_over');
+                })
+                .click(function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    $('#q').val( $(this).text() );
+                    $('#site_id').val( $(this).attr('data-tag') );
+
+                    $results.remove();
+                });
+
+
+
+
+        }
     </script>
 
 <?php
